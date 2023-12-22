@@ -5,5 +5,3 @@ users_in_memory = [
     {'id': '4', 'username': 'user4', 'email': 'user4@gmail.com', 'password': '32145'},
     {'id': '5', 'username': 'user5', 'email': 'user5@gmail.com', 'password': '54123'},
 ]
-
-users_db = []
