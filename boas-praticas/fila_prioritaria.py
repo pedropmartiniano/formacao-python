@@ -1,7 +1,10 @@
 from fila_base import FilaBase
 from constantes import COD_PRIORITARIO
 from typing import Union
+from estatistica_detalhada import EstatisticaDetalhada
+from estatistica_resumida import EstatisticaResumida
 
+Classes = Union[EstatisticaDetalhada, EstatisticaResumida]
 
 class FilaPrioritaria(FilaBase):
     def gera_senha_atual(self) -> None:
@@ -12,15 +15,6 @@ class FilaPrioritaria(FilaBase):
         self.clientes_atendidos.append(cliente_atual)
         return (f'CLiente atual: {cliente_atual}, dirija-se ao caixa: {caixa}')
 
-    def estatistica(self, dia: str, agencia: int, flag: str) -> dict:
-        estatistica: dict[str, Union[list[str], str, int]] = {}
-
-        if flag != 'detail':
-            estatistica[f'{agencia}-{dia}'] = len(self.clientes_atendidos)
-        else:
-            estatistica['dia'] = dia
-            estatistica['agencia'] = agencia
-            estatistica['clientes_atendidos'] = self.clientes_atendidos
-            estatistica['qtde_clientes_atendidos'] = len(self.clientes_atendidos)
-
-        return estatistica
+    def estatistica(self, retorna_statistica: Classes) -> dict:
+        
+        return retorna_statistica.roda_estatistica(self.clientes_atendidos)
