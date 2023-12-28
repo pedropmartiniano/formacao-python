@@ -20,7 +20,7 @@ class FilaBase(metaclass=ABCMeta):
 
     @abstractmethod
     def gera_senha_atual(self):
-        ...
+        pass
 
     def atualiza_fila(self):
         self.reseta_fila()
@@ -29,4 +29,4 @@ class FilaBase(metaclass=ABCMeta):
 
     @abstractmethod
     def chama_cliente(self, caixa: int):
-        ...
+        pass

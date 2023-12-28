@@ -1,7 +1,15 @@
+from fila_normal import FilaNormal
+from fila_prioritaria import FilaPrioritaria
+from constantes import TIPO_FILA_NORMAL, TIPO_FILA_PRIORITARIA
+from typing import Union
+
+
 class FabricaFila:
-    def pega_fila(self, tipo_fila):
-        if tipo_fila == 'normal':
-            pass
-        elif tipo_fila == 'prioritaria':
-            pass
-        
+    @staticmethod
+    def pega_fila(tipo_fila) -> Union[FilaNormal, FilaPrioritaria]:
+        if tipo_fila == TIPO_FILA_NORMAL:
+            return FilaNormal()
+        elif tipo_fila == TIPO_FILA_PRIORITARIA:
+            return FilaPrioritaria()
+        else:
+            raise NotImplementedError('tipo de fila não existe')

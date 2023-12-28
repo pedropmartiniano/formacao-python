@@ -1,5 +1,6 @@
 from fila_base import FilaBase
 from constantes import COD_PRIORITARIO
+from typing import Union
 
 
 class FilaPrioritaria(FilaBase):
@@ -12,10 +13,11 @@ class FilaPrioritaria(FilaBase):
         return (f'CLiente atual: {cliente_atual}, dirija-se ao caixa: {caixa}')
 
     def estatistica(self, dia: str, agencia: int, flag: str) -> dict:
+        estatistica: dict[str, Union[list[str], str, int]] = {}
+
         if flag != 'detail':
-            estatistica = {f'{agencia}-{dia}': len(self.clientes_atendidos)}
+            estatistica[f'{agencia}-{dia}'] = len(self.clientes_atendidos)
         else:
-            estatistica = {}
             estatistica['dia'] = dia
             estatistica['agencia'] = agencia
             estatistica['clientes_atendidos'] = self.clientes_atendidos
