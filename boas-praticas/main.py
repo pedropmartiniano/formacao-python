@@ -37,5 +37,3 @@ teste_fabrica.atualiza_fila()
 
 print(teste_fabrica.chama_cliente(10))
 print(teste_fabrica.estatistica(EstatisticaDetalhada('28/12/2023', 120)))
-
-print('-----------------------')

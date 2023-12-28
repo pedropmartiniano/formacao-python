@@ -6,6 +6,7 @@ from estatistica_resumida import EstatisticaResumida
 
 Classes = Union[EstatisticaDetalhada, EstatisticaResumida]
 
+
 class FilaPrioritaria(FilaBase):
     def gera_senha_atual(self) -> None:
         self.senha_atual = f'{COD_PRIORITARIO}{self.codigo}'
@@ -16,5 +17,5 @@ class FilaPrioritaria(FilaBase):
         return (f'CLiente atual: {cliente_atual}, dirija-se ao caixa: {caixa}')
 
     def estatistica(self, retorna_statistica: Classes) -> dict:
-        
+
         return retorna_statistica.roda_estatistica(self.clientes_atendidos)
